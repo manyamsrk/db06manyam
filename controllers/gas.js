@@ -34,10 +34,18 @@ exports.gas_create_post = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
-// Handle Gas delete form on DELETE.
-exports.gas_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Gas delete DELETE ' + req.params.id);
-};
+// Handle Gas delete on DELETE.
+exports.gas_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await Gas.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+   };
 // Handle Gas update form on PUT.
 // Handle Gas update form on PUT.
 exports.gas_update_put = async function(req, res) {
