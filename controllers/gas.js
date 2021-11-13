@@ -47,7 +47,6 @@ exports.gas_delete = async function(req, res) {
     }
    };
 // Handle Gas update form on PUT.
-// Handle Gas update form on PUT.
 exports.gas_update_put = async function(req, res) {
  console.log(`update on id ${req.params.id} with body
 ${JSON.stringify(req.body)}`)
@@ -93,3 +92,29 @@ exports.gas_view_all_Page = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
+// Handle a show one view with id specified by query
+exports.gas_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await Gas.findById( req.query.id)
+    res.render('gasdetail',
+   { title: 'Gas Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+// Handle building the view for creating a gas.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.gas_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('gascreate', { title: 'Gas Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
