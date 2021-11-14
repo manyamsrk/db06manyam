@@ -1,17 +1,18 @@
 extends layout
+
 block content
  h1= title
  form(id='GasForm', action="/resource/gas", method="POST")
- div.form-group
- label.gasAttr(for='gas_type') Gas type
- input#gas_type(type='text', name='gas_type')
- div.form-group
- label.gasAttr(for='quantity') Gas quantity
- input#quantity(type='number', name='quantity')
- div.form-group
- label.gasAttr(for='cost') Gas cost
- input#cost(type='number', name='cost')
- input(type="submit")
+    div.form-group
+    label.gasAttr(for='gas_type') Gas type
+    input#gas_type(type='text', name='gas_type')
+    div.form-group
+    label.gasAttr(for='quantity') Gas quantity
+    input#quantity(type='number', name='quantity')
+    div.form-group
+    label.gasAttr(for='cost') Gas cost
+    input#cost(type='number', name='cost')
+    input(type="submit")
  script.
     document.forms['GasForm'].addEventListener('submit', (event) => {
     event.preventDefault();
