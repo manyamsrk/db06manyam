@@ -14,17 +14,17 @@ block content
     script let actionid = "#{actionid}"
     div
     div.row
-    div(class='gasAttr mr-3') Gas ID is:
-    div #{gasid}
+    div(class='gasAttr mr-3') Gas ID is: 
+      span(style="color:red") #{gasid}
     div.row
-    div(class='gasAttr mr-3') Gas Type is:
-    div #{gas_type}
+    div(class='gasAttr mr-3') Gas Type is: 
+      span(style="color:red") #{gas_type}
     div.row
-    div(class='gasAttr mr-3') Gas quantity is:
-    div #{gasquantity}
+    div(class='gasAttr mr-3') Gas quantity is: 
+      span(style="color:red") #{gasquantity}
     div.row
-    div(class='gasAttr mr-3') Gas Cost is:
-    div #{gascost}
+    div(class='gasAttr mr-3') Gas Cost is: 
+      span(style="color:red") #{gascost}
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
     button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
 

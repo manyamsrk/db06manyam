@@ -4,15 +4,24 @@ block content
  h1= title
  form(id='GasForm', action="/resource/gas", method="POST")
     div.form-group
-    label.gasAttr(for='gas_type') Gas type
-    input#gas_type(type='text', name='gas_type')
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.gasAttr(for='gas_type',class="col-form-label") Gas type
+      div(class="col-auto")
+         input#gas_type(type='text', name='gas_type',class="form-control")
     div.form-group
-    label.gasAttr(for='quantity') Gas quantity
-    input#quantity(type='number', name='quantity')
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.gasAttr(for='quantity', class="col-form-label") Gas quantity
+      div(class="col-auto")
+         input#quantity(type='number', name='quantity',class="form-control")
     div.form-group
-    label.gasAttr(for='cost') Gas cost
-    input#cost(type='number', name='cost')
-    input(type="submit")
+    div(class="row g-3 align-items-center")
+      div(class="col-1")
+         label.gasAttr(for='cost',class="col-form-label") Gas cost
+      div(class="col-auto")
+         input#cost(type='number', name='cost',class="form-control")
+    input(type="submit",class="btn btn-primary")
  script.
     document.forms['GasForm'].addEventListener('submit', (event) => {
     event.preventDefault();
